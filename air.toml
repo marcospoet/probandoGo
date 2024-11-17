@@ -1,0 +1,22 @@
+# Configuración básica de Air
+root = "."         # Directorio raíz del proyecto
+tmp_dir = "tmp"    # Directorio temporal para archivos compilados
+
+[build]
+cmd = "go build -o ./tmp/main ."    # Comando para compilar tu aplicación
+bin = "tmp/main"                    # Ruta al binario generado
+
+[run]
+cmd = "{{.Bin}}"                    # Comando para ejecutar el binario compilado
+
+[watch]
+# Directorios y archivos a monitorear
+dir = "."
+include_ext = [".go"]               # Extensiones de archivos a monitorear
+exclude_dir = ["tmp", "vendor"]     # Directorios a excluir
+
+[log]
+level = "debug"                     # Nivel de logging
+
+[color]
+main = "magenta"                    # Color principal de la salida
