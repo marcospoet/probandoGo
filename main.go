@@ -26,7 +26,7 @@ func main() {
 	fmt.Println("hello world")
 
 	if os.Getenv("ENV") != "production" {
-		// Load the .env file if not in production
+		//Carga las variables de entorno del archivo .env si no esta en produccion
 		err := godotenv.Load(".env")
 		if err != nil {
 			log.Fatal("Error loading .env file:", err)
@@ -58,11 +58,6 @@ func main() {
 	collection = client.Database("golang_db").Collection("todos")
 
 	app := fiber.New()
-
-	// app.Use(cors.New(cors.Config{
-	// 	AllowOrigins: "http://localhost:5173",
-	// 	AllowHeaders: "Origin,Content-Type,Accept",
-	// }))
 
 	app.Get("/api/todos", getTodos) //el getTodos es el nombre de la funcion que se va a ejecutar y lo mismo con los otros
 	app.Post("/api/todos", createTodo)
